@@ -165,4 +165,31 @@ git commit -m "Criação do repositório e escrita do material de apoio"
 
 Agora um commit foi criado com as alterações que voce preparou e esse commit pode ser consultado utilizando `git log`.
 
-Na imagem acima, pode-se notar que o último commit
+![alt text](image-1.png)
+
+Note que na imagem de exemplo acima, o último e único commit tem escrito `(HEAD -> Exemplo)` e esses dados representam, respectivamente, que este commit é a "Cabeça" da branch especificada logo após a seta, que no nosso caso é a "Exemplo".
+
+Ainda não terminou, pois nem a branch, nem o commit e muito menos nossas alterações foram registradas no nosso repositório remoto, mas para isso é bem simples, basta utilizar `git push -u origin <NomeDaBranch>`.
+
+```
+git push -u origin Exemplo
+```
+
+![alt text](image-2.png)
+
+Agora sim! Todos os nossos dados estão registrados no repositório remoto, podendo ser visto por todos os outros colaboradores. Note também que agora temos uma descricão `origin/Exemplo` no commit, o que nos indica que este commit também é a "Cabeça" da nossa `branch` remote. Para concluir esse processo, basta criar um `pull request` na plataforma GIT, para o supervisor verificar o código e permitir que ele se junte ao restante do código na branch `main`.
+
+Conforme os `pull-request` forem aceitos, a sua branch `main` local ficará desatualizada e para resolver isso basta alternar para a branch main e utilizar o `git pull` para receber os `commits` mais recentes.
+
+```
+git checkout main
+git pull origin main
+```
+
+Ou, alternativamente para casos mais avançados, utilize `git fetch origin main:main` para atualizar sua `main` sem sair da sua `branch` atual e `git rebase main` para trazer os commits da `main`. Lembrando que se voce procurar realizar esse procedimento sem uma boa noção de `GIT`, pode ocorrer de voce perder todas as alterações realizadas em commits da branch atual. Frizo isso pois após atualizar a branch, vc precisa fazer um `git push -f` para sobrepor o histórico de commit de sua branch remota.
+
+```
+git fetch origin main:main
+git rebase main
+git push -f
+```
