@@ -1,25 +1,8 @@
 #include <iostream>
 #include <sstream>
+#include "codigo_pagamento.h"
 
-using namespace std;
-
-class CodigoPagamento
-{ // Richard Otto - 231006186
-private:
-    static const int TAMANHO = 8;
-    static const char CARACTERE_INICIAL_INVALIDO = '0';
-    string valor;
-    void validar(string);
-
-public:
-    void setValor(string);
-    string getValor() const;
-};
-
-inline string CodigoPagamento::getValor() const
-{
-    return valor;
-}
+// Declarações dos métodos da casse CodigoPagamento
 
 void CodigoPagamento::validar(string val)
 {
@@ -42,27 +25,7 @@ void CodigoPagamento::setValor(string val)
     this->valor = val;
 }
 
-enum EstadoTeste
-{
-    sucesso = -1,
-    falha
-};
-
-class TUCodigoPagamento
-{
-private:
-    const string VALORES_VALIDOS[2] = {"38468513", "46843213"};
-    const string VALORES_INVALIDOS[4] = {"654168w4", "03554861", "123456", "123456789"};
-    CodigoPagamento *codigoPagamento;
-    EstadoTeste estado;
-    void setUp();
-    void tearDown();
-    void testarCenariosSucesso();
-    void testarCenariosFalha();
-
-public:
-    EstadoTeste run();
-};
+// Declarações dos métodos do Teste Unitário TUCodigoPagamento
 
 void TUCodigoPagamento::setUp()
 {
@@ -101,12 +64,12 @@ void TUCodigoPagamento::testarCenariosFalha()
 
         try
         {
-            codigoPagamento->setValor(valorInvalido);
             estado = falha;
+            codigoPagamento->setValor(valorInvalido);
         }
         catch (...)
         {
-            if (codigoPagamento->getValor() == valorInvalido)
+            if (codigoPagamento->getValor() != valorInvalido)
                 estado = sucesso;
         }
     }
@@ -128,10 +91,10 @@ int main()
     switch (testeCodigoPagamento.run())
     {
     case sucesso:
-        cout << "SUCESSO - CodigoPagamento";
+        cout << "\nSUCESSO - CodigoPagamento";
         break;
     case falha:
-        cout << "FALHA   - CodigoPagamento";
+        cout << "\nFALHA   - CodigoPagamento";
         break;
     }
 }
