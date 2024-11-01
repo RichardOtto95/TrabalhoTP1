@@ -8,16 +8,22 @@ using namespace std;
 class Nome {
 private:
 
-    string valor;
+    string nome;
     bool validar (string);
 
 public:
-    bool setValor(string);
-    string getValor() const;
+    bool setNome(string);
+    string getNome() const;
 
 };
-inline string Nome::getValor()const{
-    return valor;
+inline string Nome::getNome()const{
+    return nome;
 }
 
-#endif // DOMINIO_H_INCLUDED
+class TUNome {
+public:
+    void run();
+};
+
+
+#endif 
