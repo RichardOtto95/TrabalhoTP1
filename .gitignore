@@ -1,1 +1,9 @@
-Exemplos/output/
+*output
+*bin
+*obj
+
+*.exe
+*.json
+*.cbp
+*.depend
+*.layout
