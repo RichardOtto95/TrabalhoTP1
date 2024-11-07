@@ -1,15 +1,8 @@
-#ifndef HEADERDATA_H_INCLUDED
-#define HEADERDATA_H_INCLUDED
-//Domínio data faz parte da entidade Destino
-
-
-#endif // HEADERDATA_H_INCLUDED
-
-// Data.h
 #ifndef DATA_H
 #define DATA_H
 
 #include <iostream>
+#include "estado_teste.h" // Inclui o arquivo estado_teste.h
 using namespace std;
 
 class Data {
@@ -30,9 +23,14 @@ public:
     int getMes();
     int getAno();
     void exibirData();
-    
-    // Novo método para entrada interativa de dados
     void inputData();
+
+    // Métodos de Teste
+    void setUp();
+    void tearDown();
+    void testarCenariosSucesso();
+    void testarCenariosFalha();
+    EstadoTeste run();
 };
 
-#endif
+#endif // DATA_H
