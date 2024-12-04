@@ -7,7 +7,7 @@
 
 using namespace std;
 
-class Data {
+class Data { // Arthus César Dias Fernandes - 231006103
 private:
     int dia;
     int mes;
