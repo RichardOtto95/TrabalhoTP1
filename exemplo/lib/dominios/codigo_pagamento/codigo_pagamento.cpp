@@ -19,6 +19,11 @@ void CodigoPagamento::validar(string val)
     }
 }
 
+CodigoPagamento::CodigoPagamento(const string &val)
+{
+    this->setValor(val);
+}
+
 void CodigoPagamento::setValor(string val)
 {
     validar(val);

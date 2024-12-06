@@ -19,6 +19,11 @@ void CodigoExemplo::validar(string val)
     }
 }
 
+CodigoExemplo::CodigoExemplo(const string &val)
+{
+    this->setValor(val);
+}
+
 void CodigoExemplo::setValor(string val)
 {
     validar(val);
