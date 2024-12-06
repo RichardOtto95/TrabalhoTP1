@@ -1,9 +1,19 @@
 #include <iostream>
 #include <sstream>
-#include "codigo.h"
+#include "codigo.hpp"
 
 // Declarações dos métodos da casse Codigo
 
+//Construtores
+
+Codigo::Codigo(){
+    valor = "000000"; // valor padrão do codigo
+}
+
+Codigo::Codigo(string val){
+    setValor(val);
+}
+// metodo de validação
 void Codigo::validar(string cod)
 {
     if(cod.length() != TAMANHO){
@@ -15,7 +25,7 @@ void Codigo::validar(string cod)
         }
     }
 }
-
+// metodo set
 void Codigo::setValor(string val)
 {
     validar(val);
